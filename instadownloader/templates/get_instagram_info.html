@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram User Info</title>
+</head>
+<body>
+    <h1>Instagram User Info</h1>
+    <form method="post" action="{% url 'get_instagram_info' %}">
+        {% csrf_token %}
+        <label for="username">Enter Instagram Username:</label>
+        <input type="text" name="username" id="username" required>
+        <button type="submit">Get Info</button>
+    </form>
+
+    {% if user_info %}
+    <div id="user-info">
+        <h2>User Details for {{ user_info.username }}</h2>
+        <ul>
+            <li>Following: {{ user_info.following_count }}</li>
+            <li>Followers: {{ user_info.followers_count }}</li>
+            <li>Total Posts: {{ user_info.total_posts }}</li>
+            <li>IGTV Posts: {{ user_info.igtv_posts }}</li>
+            <li>Private Account: {{ user_info.is_private }}</li>
+            <li>Bio: {{ user_info.bio }}</li>
+            <li>External URL: {{ user_info.external_url }}</li>
+            <li>Total Likes: {{ user_info.total_likes }}</li>
+            <li>Total Comments: {{ user_info.total_comments }}</li>
+            <li>Total Hashtags: {{ user_info.total_hashtags }}</li>
+        </ul>
+        {% if user_info.error %}
+            <p style="color: red;">{{ user_info.error }}</p>
+        {% endif %}
+    </div>
+
+    {% endif %}
+</body>
+</html>

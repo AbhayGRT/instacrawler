@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Dashboard</h1>
+
+  <ul>
+    <li><a href="{% url 'get_instagram_info' %}">Get Instagram User Data</a></li>
+    <li><a href="{% url 'download_data' %}">Download Instauser Data</a></li>
+    <li><a href="{% url 'download_media' %}">Download Instauser Media</a></li>
+    <li><a href="{% url 'download_profile_photo' %}">Download Instauser Profile Photo</a></li>
+  </ul>
+
+  <!-- Statistics -->
+  {% include 'download_statistics.html' %}
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Instagram Data</title>
+    <style>
+        /* Style the login/register block */
+        .login-register {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Download Instagram Data</h1>
+    <form method="post" id="download-form">
+        {% csrf_token %}
+        <label for="username">Enter Instagram Username:</label>
+        <input type="text" name="username" id="username" required>
+        <br>
+        <label for="download_images">Download Images:</label>
+        <input type="checkbox" name="download_images" id="download_images">
+        <br>
+        <label for="download_videos">Download Videos:</label>
+        <input type="checkbox" name="download_videos" id="download_videos">
+        <br>
+        <label for="download_txt">Download Captions:</label>
+        <input type="checkbox" name="download_txt" id="download_txt">
+        <br>
+        <label for="num_posts">Number of Posts to Download (optional):</label>
+        <input type="number" name="num_posts" id="num_posts" min="1" >
+        <p for="num_posts">Write nothing if you want to download every data as per selection</p>
+
+        <br>
+        <button type="submit" id="download-button">Download</button>
+    </form>
+
+</body>
+</html>
+
+</body>
+</html>
